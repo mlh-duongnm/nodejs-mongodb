@@ -4,15 +4,15 @@ services:
   app:
     image: duongnm/docker-node-mongo:v1
     volumes:
-      - ./:/app # mount từ môi trường gốc vào trong để nếu các bạn thay đổi code thì bên trong sẽ tự động cập nhật
-    environment: # phần này định nghĩa ở file .env
+      - ./:/app 
+    environment: # .env
       - DB_HOST=${DB_HOST}
       - DB_NAME=${DB_NAME}
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
       - PORT=${PORT}
     ports:
-      - "${PORT}:${PORT}" # phần này định nghĩa ở file .env
+      - "${PORT}:${PORT}" # .env
     restart: unless-stopped
     depends_on:
         - redis
